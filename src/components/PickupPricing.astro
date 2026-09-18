@@ -1,0 +1,70 @@
+---
+// src/components/PickupPricing.astro
+import { MapPinIcon, DevicePhoneMobileIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+
+const perks = [
+  { icon: MapPinIcon, text: 'Pickup gratis radius 15 km' },
+  { icon: DevicePhoneMobileIcon, text: 'Real-time tracking via WhatsApp' },
+  { icon: ShieldCheckIcon, text: 'Insurance covered' },
+];
+
+const sizes = [
+  { name: 'Small', cars: 'Brio, Agya, Ayla, Ignis' },
+  { name: 'Medium', cars: 'Avanza, Xenia, Mobilio, HR-V, Creta' },
+  { name: 'Large', cars: 'Innova, Fortuner, Pajero Sport, CR-V' },
+  { name: 'SUV / Premium', cars: 'Land Cruiser, BMW X5, Mercedes GLE, Alphard' },
+];
+---
+
+<section id="pickup" class="on-light overflow-x-clip bg-primer px-5 py-24 text-ink sm:px-8 md:py-36">
+  <div class="mx-auto max-w-[1440px]">
+    <div class="grid gap-14 lg:grid-cols-[6fr_5fr] lg:items-center lg:gap-24">
+      <!-- cut-out car breaking out of its petrol frame; the word sits behind it -->
+      <div class="reveal">
+        <div class="pickup-stage">
+          <div class="pickup-block" aria-hidden="true"></div>
+          <p class="pickup-word" aria-hidden="true">Pickup</p>
+          <div class="pickup-shadow" aria-hidden="true"></div>
+          <img src="/img/pickup-car.webp" alt="BMW seri 7 abu-abu siap dijemput untuk detailing" class="pickup-car" width="1800" height="1002" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div class="reveal" style="--d:.1s">
+        <h2 class="display h-xl">
+          Tidak sempat antar? <strong>Kami yang datang.</strong>
+        </h2>
+        <p class="lead mt-6 text-slate">
+          Layanan pickup &amp; delivery gratis untuk paket Detailing Standard ke atas. Hubungi 1 hari sebelumnya, kami jemput mobil Anda di rumah atau kantor.
+        </p>
+        <ul class="mt-10 border-t border-ink/25">
+          {perks.map((p) => (
+            <li class="flex items-center gap-5 border-b border-ink/25 py-5">
+              <p.icon className="h-6 w-6 shrink-0" strokeWidth={1.5} />
+              <span class="text-[1.05rem] font-medium">{p.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-28 md:mt-40">
+      <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-6">
+        <h2 class="display h-lg">
+          Pricing by <strong>car size</strong>
+        </h2>
+        <p class="max-w-[28rem] text-[0.95rem] text-slate">
+          Harga tiap paket mengikuti kategori ukuran mobil. Tim kami mengonfirmasi kategori saat booking.
+        </p>
+      </div>
+      <dl class="grid border-t border-ink md:grid-cols-4">
+        {sizes.map((s, i) => (
+          <div class="reveal border-b border-ink/25 py-7 md:border-b-0 md:border-r md:border-ink/25 md:px-7 md:first:pl-0 md:last:border-r-0" style={`--d:${i * 0.08}s`}>
+            <dt class="display h-md font-semibold">{s.name}</dt>
+            <dd class="mt-3 text-[0.98rem] leading-relaxed text-slate">{s.cars}</dd>
+            <dd class="num mt-4 text-[0.8rem] text-slate">Harga menyusul</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
