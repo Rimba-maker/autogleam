@@ -1,0 +1,97 @@
+---
+// src/pages/index.astro
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.tsx';
+import Ticker from '../components/Ticker.astro';
+import ServicesTier from '../components/ServicesTier.tsx';
+import SpecialtyServices from '../components/SpecialtyServices.tsx';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.tsx';
+import OurProcess from '../components/OurProcess.tsx';
+import Products from '../components/Products.tsx';
+import PickupPricing from '../components/PickupPricing.astro';
+import Membership from '../components/Membership.tsx';
+import TestimonialBooking from '../components/TestimonialBooking.tsx';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const title = 'AutoGleam Detailing — Premium Car Wash & Detailing Jakarta';
+const description =
+  'Premium car detailing dengan ceramic coating, paint protection film, dan paint correction. Produk Chemical Guys, Gyeon, Meguiar\'s. Cabang Jabodetabek & Bandung.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AutomotiveBusiness',
+  name: 'AutoGleam Detailing',
+  description,
+  slogan: 'Beyond Clean. We Make It Gleam.',
+  areaServed: ['Jakarta', 'Tangerang', 'Bekasi', 'Bandung'],
+  openingHours: 'Mo-Su 08:00-20:00',
+};
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="keywords" content="detailing mobil jakarta, ceramic coating, cuci mobil premium, paint protection film, salon mobil jakarta">
+  <meta name="theme-color" content="#0a0d0f">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Martian+Mono:wdth,wght@75..112,300..700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/img/hero-car-dull.webp" type="image/webp">
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+</head>
+<body>
+  <Navbar />
+  <main>
+    <Hero client:load />
+    <Ticker />
+    <ServicesTier client:visible />
+    <SpecialtyServices client:visible />
+    <BeforeAfterSlider client:visible />
+    <OurProcess client:visible />
+    <Products client:visible />
+    <PickupPricing />
+    <Membership client:visible />
+    <TestimonialBooking client:visible />
+  </main>
+  <Footer />
+
+  <script>
+    // Reveal static sections once, as they enter the viewport.
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    // clip-path hides the element from the observer, so a clipped photo is watched through its parent.
+    document.querySelectorAll('.reveal-clip').forEach((el) => {
+      const host = el.parentElement;
+      if (!host) return;
+      new IntersectionObserver((es, o) => {
+        if (es.some((e) => e.isIntersecting)) { el.classList.add('in'); o.disconnect(); }
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 }).observe(host);
+    });
+
+    // Nav gains a surface once the hero is scrolled past.
+    const nav = document.getElementById('site-nav');
+    const onScroll = () => nav?.toggleAttribute('data-scrolled', window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+</body>
+</html>
