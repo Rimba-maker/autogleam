@@ -1,0 +1,23 @@
+# dependencies & build output
+node_modules/
+dist/
+.astro/
+
+# environment & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+
+# internal documents: put anything private in docs/private/ and it stays local
+/docs/private/
+
+# notes that sit beside served assets
+/public/img/*.json
