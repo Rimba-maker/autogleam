@@ -1,0 +1,28 @@
+---
+// src/components/Ticker.astro — amber band under the hero; the page's one full-width field of signal colour.
+const items = [
+  'Beyond Clean. We Make It Gleam.',
+  '5.000+ mobil detailed*',
+  'Ceramic Coating',
+  'Paint Protection Film',
+  'Paint Correction',
+  '7 tahun pengalaman*',
+  'Brand premium only',
+  '*Angka ilustratif untuk demo',
+];
+---
+
+<div class="marquee-wrap overflow-hidden bg-lamp text-ink">
+  <div class="marquee py-3.5" style="--dur: 60s">
+    {[0, 1].map((dup) => (
+      <ul class="flex shrink-0 items-center" aria-hidden={dup === 1 ? 'true' : undefined}>
+        {items.map((t) => (
+          <li class="wide-caps flex items-center whitespace-nowrap px-7 text-[0.8rem]">
+            {t}
+            <svg width="10" height="10" viewBox="0 0 24 24" class="ml-14" aria-hidden="true"><path fill="currentColor" d="M12 0C12.7 6.6 17.4 11.3 24 12C17.4 12.7 12.7 17.4 12 24C11.3 17.4 6.6 12.7 0 12C6.6 11.3 11.3 6.6 12 0Z"/></svg>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
