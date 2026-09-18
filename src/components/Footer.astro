@@ -1,0 +1,71 @@
+---
+// src/components/Footer.astro
+const branches = ['Jakarta Selatan', 'Tangerang (BSD)', 'Bekasi', 'Bandung'];
+const socials = [
+  { label: 'Instagram @autogleam.id', href: '#' },
+  { label: 'YouTube — detailing tutorial', href: '#' },
+  { label: 'TikTok', href: '#' },
+];
+---
+
+<footer class="bg-bay">
+  <!-- closing frame: the hero's 911 again, now fully gleaming, with the tagline's last word behind it -->
+  <div class="close-stage">
+    <span class="close-word" aria-hidden="true">Gleam</span>
+    <div class="close-floor" aria-hidden="true"></div>
+    <img src="/img/hero-car-gleam.webp" alt="" aria-hidden="true" class="close-reflect" width="2000" height="711" loading="lazy" decoding="async" />
+    <div class="close-contact" aria-hidden="true"></div>
+    <img src="/img/hero-car-gleam.webp" alt="Porsche 911 yang sama dari awal halaman, kini berkilau penuh" class="close-car" width="2000" height="711" loading="lazy" decoding="async" />
+
+    <div class="relative z-10 mx-auto max-w-[1440px] px-5 pb-24 pt-28 sm:px-8 md:pt-36">
+      <p class="display reveal max-w-3xl text-[clamp(1.6rem,3.7vw,3.5rem)]">
+        Beyond clean. <strong>We make it gleam.</strong>
+      </p>
+      <div class="reveal mt-8 flex flex-wrap items-center gap-x-8 gap-y-4" style="--d:.15s">
+        <a href="#booking" class="btn btn-lamp">Book Sekarang</a>
+        <a href="#services" class="link-line text-[0.95rem]">Lihat paket</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1440px] px-5 pb-10 pt-20 sm:px-8">
+    <div class="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <p class="wide-caps text-[1.05rem] tracking-[0.2em]">AutoGleam <span class="text-mist">Detailing</span></p>
+        <p class="mt-4 max-w-[22rem] text-[0.95rem] text-mist-2">Premium care for your premium ride.</p>
+      </div>
+
+      <div id="location">
+        <h3 class="wide-caps text-[0.7rem] text-mist">Cabang</h3>
+        <ul class="mt-5 space-y-2.5 text-[0.95rem]">
+          {branches.map((b) => <li>{b}</li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="wide-caps text-[0.7rem] text-mist">Jam buka</h3>
+        <ul class="mt-5 space-y-2.5 text-[0.95rem]">
+          <li>Setiap hari</li>
+          <li class="num">08:00 – 20:00</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="wide-caps text-[0.7rem] text-mist">Sosial media</h3>
+        <ul class="mt-5 space-y-2.5 text-[0.95rem]">
+          {socials.map((s) => <li><a href={s.href} class="link-line">{s.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+
+    <p aria-hidden="true" class="display mt-24 select-none whitespace-nowrap text-center text-[clamp(2.4rem,11.2vw,11rem)] font-extrabold leading-none text-frost/[0.06]">AutoGleam</p>
+
+    <div class="mt-8 flex flex-col items-start justify-between gap-4 border-t border-frost/12 pt-6 text-[0.8rem] text-mist sm:flex-row sm:items-center">
+      <div><p>&copy; {new Date().getFullYear()} AutoGleam Detailing. All rights reserved.</p><p class="mt-1">Harga, statistik, testimoni, dan cabang di halaman ini adalah data contoh untuk demo.</p></div>
+      <div class="flex gap-6">
+        <a href="#" class="link-line">Privacy Policy</a>
+        <a href="#" class="link-line">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
