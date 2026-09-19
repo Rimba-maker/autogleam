@@ -1,6 +1,6 @@
 // src/components/TestimonialBooking.tsx
 import { asset } from '../lib/asset';
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline';
 
@@ -123,7 +123,7 @@ function BookingForm() {
   const filled = REQUIRED.filter((k) => f[k].trim() !== '').length;
   const pct = Math.round((filled / REQUIRED.length) * 100);
 
-  const submit = (e: FormEvent) => {
+  const submit = (e: SyntheticEvent) => {
     e.preventDefault();
     setStatus('loading');
     // demo only: swap this timeout for the real WhatsApp / API hand-off
