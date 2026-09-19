@@ -1,4 +1,5 @@
 // src/components/ServicesTier.tsx
+import { asset } from '../lib/asset';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckIcon, ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
@@ -19,7 +20,7 @@ const tiers: Tier[] = [
     name: 'Express Wash',
     price: 'Rp 65k – 95k',
     duration: '45 mnt',
-    image: '/img/tier-express.webp',
+    image: asset('/img/tier-express.webp'),
     alt: 'Velg merah disikat saat proses foam wash',
     pos: '50% 62%',
     features: ['Foam wash 2 bucket method', 'Wheel & tire cleaning', 'Vacuum interior', 'Glass cleaning', 'Tire shine'],
@@ -28,7 +29,7 @@ const tiers: Tier[] = [
     name: 'Premium Wash',
     price: 'Rp 150k – 220k',
     duration: '90 mnt',
-    image: '/img/tier-premium.webp',
+    image: asset('/img/tier-premium.webp'),
     alt: 'Snow foam pre-wash pada mobil hitam di garasi',
     pos: '55% 50%',
     features: ['Semua Express +', 'Snow foam pre-wash', 'Decontamination (iron remover)', 'Interior wipe down', 'Dashboard dressing', 'Spray wax protection'],
@@ -37,7 +38,7 @@ const tiers: Tier[] = [
     name: 'Detailing Standard',
     price: 'Rp 450k – 650k',
     duration: '4 jam',
-    image: '/img/tier-standard.webp',
+    image: asset('/img/tier-standard.webp'),
     alt: 'Mesin polisher dengan pad kuning pada cat putih',
     pos: '50% 40%',
     popular: true,
@@ -47,7 +48,7 @@ const tiers: Tier[] = [
     name: 'Detailing Ultimate',
     price: 'Rp 1,2jt – 1,8jt',
     duration: '8 jam',
-    image: '/img/tier-ultimate.webp',
+    image: asset('/img/tier-ultimate.webp'),
     alt: 'Detailer memoles mobil sport gelap di bengkel bata',
     pos: '50% 55%',
     features: ['Semua Standard +', 'Full paint correction (1-stage)', 'Ceramic coating prep', 'Headlight restoration', 'Trim restoration', '6 bulan warranty'],

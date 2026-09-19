@@ -1,4 +1,5 @@
 // src/components/BeforeAfterSlider.tsx
+import { asset } from '../lib/asset';
 import { useRef, useState, useEffect } from 'react';
 import { animate, useInView } from 'framer-motion';
 
@@ -15,10 +16,10 @@ interface Case {
 }
 
 const cases: Case[] = [
-  { id: 'paint', title: 'Swirl & oksidasi', note: 'Cat kusam berswirl kembali dalam.', image: '/img/ba-paint.webp', pos: '50% 58%', before: 'saturate(.35) contrast(.78) brightness(1.55) sepia(.15)', swirl: 0.75 },
-  { id: 'scratch', title: 'Scratch removal', note: 'Baret halus terangkat, refleksi kembali tajam.', image: '/img/ba-scratch.webp', pos: '50% 50%', before: 'saturate(.5) contrast(.82) brightness(1.45)', swirl: 0.95 },
-  { id: 'light', title: 'Headlight restoration', note: 'Lensa kuning dan buram kembali jernih.', image: '/img/ba-light.webp', pos: '50% 45%', before: 'sepia(.85) saturate(.7) contrast(.78) brightness(1.1) blur(1.6px)', swirl: 0.25 },
-  { id: 'interior', title: 'Interior deep clean', note: 'Debu, noda, dan kusam hilang dari kulit dan trim.', image: '/img/ba-interior.webp', pos: '50% 45%', before: 'saturate(.4) contrast(.72) brightness(1.35) sepia(.25)', swirl: 0.35 },
+  { id: 'paint', title: 'Swirl & oksidasi', note: 'Cat kusam berswirl kembali dalam.', image: asset('/img/ba-paint.webp'), pos: '50% 58%', before: 'saturate(.35) contrast(.78) brightness(1.55) sepia(.15)', swirl: 0.75 },
+  { id: 'scratch', title: 'Scratch removal', note: 'Baret halus terangkat, refleksi kembali tajam.', image: asset('/img/ba-scratch.webp'), pos: '50% 50%', before: 'saturate(.5) contrast(.82) brightness(1.45)', swirl: 0.95 },
+  { id: 'light', title: 'Headlight restoration', note: 'Lensa kuning dan buram kembali jernih.', image: asset('/img/ba-light.webp'), pos: '50% 45%', before: 'sepia(.85) saturate(.7) contrast(.78) brightness(1.1) blur(1.6px)', swirl: 0.25 },
+  { id: 'interior', title: 'Interior deep clean', note: 'Debu, noda, dan kusam hilang dari kulit dan trim.', image: asset('/img/ba-interior.webp'), pos: '50% 45%', before: 'saturate(.4) contrast(.72) brightness(1.35) sepia(.25)', swirl: 0.35 },
 ];
 
 function Compare({ item }: { item: Case }) {
@@ -45,7 +46,7 @@ function Compare({ item }: { item: Case }) {
         {/* BEFORE: the same frame, un-corrected */}
         <div className="absolute inset-0 z-20" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
           <img src={item.image} alt={`Sebelum: ${item.title}`} loading="lazy" decoding="async" style={{ objectPosition: item.pos, filter: item.before }} className="absolute inset-0" />
-          <img src="/img/swirl.webp" alt="" aria-hidden="true" loading="lazy" style={{ opacity: item.swirl, objectPosition: item.pos }} className="absolute inset-0 mix-blend-screen" />
+          <img src={asset('/img/swirl.webp')} alt="" aria-hidden="true" loading="lazy" style={{ opacity: item.swirl, objectPosition: item.pos }} className="absolute inset-0 mix-blend-screen" />
           <div className="absolute inset-0 bg-primer/10" aria-hidden="true" />
           <span className="wide-caps absolute left-4 top-4 bg-bay/85 px-2.5 py-1 text-[0.7rem] text-frost">Before</span>
         </div>

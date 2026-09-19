@@ -1,4 +1,5 @@
 // src/components/OurProcess.tsx
+import { asset } from '../lib/asset';
 import { useEffect, useRef, useState, type ComponentType, type SVGProps } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import {
@@ -16,14 +17,14 @@ interface Step {
 }
 
 const steps: Step[] = [
-  { icon: MagnifyingGlassIcon, title: 'Inspection', desc: 'Cek kondisi cat, panel, dan swirl sebelum satu produk pun disentuhkan ke mobil.', image: '/img/proc-inspect.webp', alt: 'BMW dengan lampu menyala di ruang gelap', pos: '50% 60%' },
-  { icon: BeakerIcon, title: 'Pre-Wash', desc: 'Snow foam melonggarkan kotoran dan debu jalan sebelum ada kontak fisik.', image: '/img/proc-prewash.webp', alt: 'Mobil hitam berbusa saat snow foam pre-wash', pos: '50% 50%' },
-  { icon: SparklesIcon, title: 'Hand Wash', desc: '2 bucket method dengan microfiber wash mitt, supaya kotoran tidak kembali menggores cat.', image: '/img/proc-hand.webp', alt: 'Tangan mencuci bodi mobil dengan spons dan busa', pos: '50% 40%' },
-  { icon: ExclamationTriangleIcon, title: 'Decontamination', desc: 'Iron remover dan tar remover mengangkat kontaminan yang menempel di dalam pori cat.', image: '/img/proc-decon.webp', alt: 'Velg dengan butiran air setelah dekontaminasi', pos: '50% 50%' },
-  { icon: ViewfinderCircleIcon, title: 'Clay Bar', desc: 'Mengangkat kontaminan permukaan sampai cat terasa halus seperti kaca.', image: '/img/proc-clay.webp', alt: 'Tangan mengelap kap mobil balap dengan kain kuning', pos: '50% 50%' },
-  { icon: SunIcon, title: 'Polish / Correction', desc: 'Sesuai paket: dari polish ringan hingga koreksi cat multi-stage.', image: '/img/proc-polish.webp', alt: 'Detailer memoles bodi mobil hitam dengan mesin polisher', pos: '50% 35%' },
-  { icon: ShieldCheckIcon, title: 'Protection', desc: 'Wax, sealant, atau ceramic coating mengunci hasil dan melindungi cat.', image: '/img/proc-protect.webp', alt: 'Butiran air pada permukaan cat yang dilapisi coating', pos: '50% 50%' },
-  { icon: CheckBadgeIcon, title: 'Final Inspection', desc: 'QC di bawah multi-angle lighting. Mobil baru keluar bay setelah lolos.', image: '/img/proc-final.webp', alt: 'Porsche 911 abu-abu di bay dengan cahaya hangat', pos: '50% 50%' },
+  { icon: MagnifyingGlassIcon, title: 'Inspection', desc: 'Cek kondisi cat, panel, dan swirl sebelum satu produk pun disentuhkan ke mobil.', image: asset('/img/proc-inspect.webp'), alt: 'BMW dengan lampu menyala di ruang gelap', pos: '50% 60%' },
+  { icon: BeakerIcon, title: 'Pre-Wash', desc: 'Snow foam melonggarkan kotoran dan debu jalan sebelum ada kontak fisik.', image: asset('/img/proc-prewash.webp'), alt: 'Mobil hitam berbusa saat snow foam pre-wash', pos: '50% 50%' },
+  { icon: SparklesIcon, title: 'Hand Wash', desc: '2 bucket method dengan microfiber wash mitt, supaya kotoran tidak kembali menggores cat.', image: asset('/img/proc-hand.webp'), alt: 'Tangan mencuci bodi mobil dengan spons dan busa', pos: '50% 40%' },
+  { icon: ExclamationTriangleIcon, title: 'Decontamination', desc: 'Iron remover dan tar remover mengangkat kontaminan yang menempel di dalam pori cat.', image: asset('/img/proc-decon.webp'), alt: 'Velg dengan butiran air setelah dekontaminasi', pos: '50% 50%' },
+  { icon: ViewfinderCircleIcon, title: 'Clay Bar', desc: 'Mengangkat kontaminan permukaan sampai cat terasa halus seperti kaca.', image: asset('/img/proc-clay.webp'), alt: 'Tangan mengelap kap mobil balap dengan kain kuning', pos: '50% 50%' },
+  { icon: SunIcon, title: 'Polish / Correction', desc: 'Sesuai paket: dari polish ringan hingga koreksi cat multi-stage.', image: asset('/img/proc-polish.webp'), alt: 'Detailer memoles bodi mobil hitam dengan mesin polisher', pos: '50% 35%' },
+  { icon: ShieldCheckIcon, title: 'Protection', desc: 'Wax, sealant, atau ceramic coating mengunci hasil dan melindungi cat.', image: asset('/img/proc-protect.webp'), alt: 'Butiran air pada permukaan cat yang dilapisi coating', pos: '50% 50%' },
+  { icon: CheckBadgeIcon, title: 'Final Inspection', desc: 'QC di bawah multi-angle lighting. Mobil baru keluar bay setelah lolos.', image: asset('/img/proc-final.webp'), alt: 'Porsche 911 abu-abu di bay dengan cahaya hangat', pos: '50% 50%' },
 ];
 
 export default function OurProcess() {

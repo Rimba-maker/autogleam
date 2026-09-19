@@ -1,4 +1,5 @@
 // src/components/TestimonialBooking.tsx
+import { asset } from '../lib/asset';
 import { useEffect, useState, type FormEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline';
@@ -8,21 +9,21 @@ const testimonials = [
     quote: 'Coating Gyeon 3 tahun, hasilnya gila beneran! Air langsung lari, debu gak nempel. Worth every rupiah.',
     name: 'Pak Andi',
     car: 'BMW X3 owner',
-    image: '/img/tst-1.webp',
+    image: asset('/img/tst-1.webp'),
     alt: 'Lampu depan mobil hitam dengan DRL kuning menyala',
   },
   {
     quote: 'Subscribe weekly wash, mobil keluarga selalu bersih tanpa effort. Recommended!',
     name: 'Bu Maya',
     car: 'Innova owner',
-    image: '/img/tst-2.webp',
+    image: asset('/img/tst-2.webp'),
     alt: 'Velg hitam yang dicuci dengan busa',
   },
   {
     quote: 'Detailing untuk mobil mau jual, harga jual naik 8 juta. ROI gila.',
     name: 'Andri',
     car: 'Used car dealer',
-    image: '/img/tst-3.webp',
+    image: asset('/img/tst-3.webp'),
     alt: 'Mobil putih di showroom gelap dengan mobil lain di belakangnya',
   },
 ];

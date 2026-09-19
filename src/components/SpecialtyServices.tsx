@@ -1,4 +1,5 @@
 // src/components/SpecialtyServices.tsx
+import { asset } from '../lib/asset';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
@@ -30,7 +31,7 @@ const specialties: Specialty[] = [
       { name: '5 Year Coating', price: 'Rp 9jt – 15jt' },
     ],
     includes: 'Termasuk paint correction, prep, aplikasi, dan warranty',
-    image: '/img/spec-ceramic.webp',
+    image: asset('/img/spec-ceramic.webp'),
     alt: 'Butiran air pada lambang mobil hitam yang dilapisi coating',
     pos: '50% 64%',
     word: 'Ceramic',
@@ -46,7 +47,7 @@ const specialties: Specialty[] = [
       { name: 'Full Body PPF', price: 'Rp 25jt – 60jt' },
     ],
     includes: 'Self-healing TPU film, 10 tahun warranty',
-    image: '/img/spec-ppf.webp',
+    image: asset('/img/spec-ppf.webp'),
     alt: 'Lampu depan dan bodi hitam mengkilap sebuah mobil sport',
     pos: '50% 45%',
     flip: true,
@@ -63,7 +64,7 @@ const specialties: Specialty[] = [
       { name: 'Multi-Stage (heavy swirl)', price: 'Konsultasi' },
     ],
     includes: 'Mengangkat swirl, scratch ringan, water spot',
-    image: '/img/spec-polish.webp',
+    image: asset('/img/spec-polish.webp'),
     alt: 'Pad polisher kuning memoles lampu depan dan bodi putih',
     pos: '50% 38%',
     word: 'Polish',
@@ -135,7 +136,7 @@ export default function SpecialtyServices() {
           <span className="spec-word" aria-hidden="true">Protect</span>
           <div className="spec-shadow" aria-hidden="true" />
           <img
-            src="/img/specialty-car.webp"
+            src={asset('/img/specialty-car.webp')}
             alt="Lamborghini kuning, mobil yang layak dilindungi ceramic coating dan PPF"
             className="spec-car"
             width="1800"

@@ -1,4 +1,5 @@
 // src/components/Products.tsx
+import { asset } from '../lib/asset';
 import { motion } from 'framer-motion';
 
 const brands = [
@@ -26,7 +27,7 @@ export default function Products() {
         </div>
         <div className="crop [--crop-color:rgba(232,239,238,.55)]">
           <div className="photo aspect-[16/10] w-full">
-            <img src="/img/products.webp" alt="Detailer menerapkan produk dengan kuas pada dashboard mobil" loading="lazy" decoding="async" />
+            <img src={asset('/img/products.webp')} alt="Detailer menerapkan produk dengan kuas pada dashboard mobil" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

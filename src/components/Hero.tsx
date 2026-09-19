@@ -1,4 +1,5 @@
 // src/components/Hero.tsx
+import { asset } from '../lib/asset';
 import { useEffect, useRef, type CSSProperties } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
@@ -62,12 +63,12 @@ export default function Hero() {
       </div>
 
       <div className="hero-floor" aria-hidden="true" />
-      <img src="/img/hero-car-gleam.webp" alt="" className="hero-reflect" aria-hidden="true" />
+      <img src={asset('/img/hero-car-gleam.webp')} alt="" className="hero-reflect" aria-hidden="true" />
       <div className="hero-contact" aria-hidden="true" />
 
       {/* 2. the car: hazed and swirled by default, gleaming where the lamp lands */}
       <img
-        src="/img/hero-car-dull.webp"
+        src={asset('/img/hero-car-dull.webp')}
         alt="Porsche 911 abu-abu perak di bay detailing, cat terlihat kusam dan berswirl"
         className="hero-car anim-settle"
         style={delay('0.35s')}
@@ -75,7 +76,7 @@ export default function Hero() {
         decoding="async"
       />
       <div className="hero-layer lamp-mask" aria-hidden="true">
-        <img src="/img/hero-car-gleam.webp" alt="" className="hero-car" decoding="async" />
+        <img src={asset('/img/hero-car-gleam.webp')} alt="" className="hero-car" decoding="async" />
       </div>
       <div className="hero-layer hero-glow" aria-hidden="true" />
       <div className="hero-frame crop" aria-hidden="true" />

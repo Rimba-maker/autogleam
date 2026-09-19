@@ -1,4 +1,5 @@
 ---
+import { asset } from '../lib/asset';
 // src/pages/index.astro
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.tsx';
@@ -40,11 +41,11 @@ const jsonLd = {
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Martian+Mono:wdth,wght@75..112,300..700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/img/hero-car-dull.webp" type="image/webp">
+  <link rel="preload" as="image" href={asset('/img/hero-car-dull.webp')} type="image/webp">
   <script is:inline>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 </head>
